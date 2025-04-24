@@ -9,6 +9,7 @@ public class AltinToplamaMekanigi : MonoBehaviour
     [SerializeField] TextMeshProUGUI goldTxt;
     private void Start()
     {
+        DataBase.LoadData();
         goldTxt.text = $"Gold = {DataBase.AltinSayisi}";
     }
     void Update()

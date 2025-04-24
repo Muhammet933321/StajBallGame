@@ -10,9 +10,17 @@ public class MainMenuController : MonoBehaviour
         DataBase.LoadData();
     }
 
-    public void ClickPlayButton()
+    public void Level1Click()
     {
-        SceneManager.LoadScene("Level01");
+        SceneManager.LoadScene("Level1");
+    }
+    public void Level2Click()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+    public void Level3Click()
+    {
+        SceneManager.LoadScene("Level3");
     }
 
 }

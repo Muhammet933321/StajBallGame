@@ -9,14 +9,28 @@ public class LevelFinisherSC : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+
             Debug.Log("LevelGecildi !!");
             DataBase.SaveData();
             int levelIndex = SceneManager.GetActiveScene().buildIndex;
             Debug.Log(levelIndex);
             levelIndex = levelIndex +1;
 
-            SceneManager.LoadScene(levelIndex);
+            if (IsSceneAtBuildIndexValid(levelIndex))
+            {
+                SceneManager.LoadScene(levelIndex);
+            }
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
+
         }
         
+    }
+    bool IsSceneAtBuildIndexValid(int index)
+    {
+        string scenePath = SceneUtility.GetScenePathByBuildIndex(index);
+        return !string.IsNullOrEmpty(scenePath);
     }
 }
